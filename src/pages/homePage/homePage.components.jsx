@@ -28,7 +28,7 @@ class HomePage extends React.Component {
                 {
                   alert(error)
                 })
-               }, 100);};
+               }, 2000);};
     this.Search = this.state.Search
     this.url =`https://www.omdbapi.com/?APIKEY=a51d58ac`
     this.myFunction=(state,url,fetchingData,timeToDelay)=>mF(state,url,fetchingData)
