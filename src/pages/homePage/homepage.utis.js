@@ -14,7 +14,7 @@ export const fourItemPairs = (Search)=>{
    return newSearch
 }
 
-const myFunction=(state,url,fetchingData)=> {
+export const myFunction=(state,url,fetchingData)=> {
    let {movieName,yearOfRelease,page=1}= state
    if(movieName!=='')
    {
@@ -27,8 +27,7 @@ const myFunction=(state,url,fetchingData)=> {
    url=url.concat(`&page=${page}`)
      fetchingData(url)
    }
-const myStopFunction=(fetchingData)=> 
+export const myStopFunction=(fetchingData)=> 
       {
          clearTimeout(fetchingData);
       }
-module.exports= {myStopFunction,myFunction,fourItemPairs}
