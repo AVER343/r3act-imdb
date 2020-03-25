@@ -10,7 +10,8 @@ import { connect } from 'react-redux';
 import { ADD_FAVOURITE ,DELETE_FAVOURITE} from '../../redux/favourites/favourites.actions';
 import { createStructuredSelector } from 'reselect';
 import { getFavourites } from '../../redux/favourites/favourites.selectors';
-const CollectionItem = ({functionality,item,ADD_FAVOURITE,DELETE_FAVOURITE}) => {
+import isExisting from './collection-item-utils';
+const CollectionItem = ({favourites,functionality,item,ADD_FAVOURITE,DELETE_FAVOURITE}) => {
  return (
     <CollectionItemContainer>
   <div
@@ -23,10 +24,14 @@ const CollectionItem = ({functionality,item,ADD_FAVOURITE,DELETE_FAVOURITE}) => 
       <CollectionFooterContainer>
     <NameContainer>{item.Title}({item.Year})</NameContainer>
       </CollectionFooterContainer>
-        {functionality?<AddButton  onClick={()=>{DELETE_FAVOURITE(item)}} inverted >
+        {isExisting(favourites,item)?<AddButton  onClick={()=>{
+                functionality=false
+              DELETE_FAVOURITE(item)}} inverted >
                   DELETE FROM FAVOURITES
       </AddButton>:
-      <AddButton  onClick={()=>{ADD_FAVOURITE(item)}} inverted >
+      <AddButton  onClick={()=>{
+        functionality=true
+        ADD_FAVOURITE(item)}} inverted >
                   ADD TO FAVOURITES
       </AddButton>}
     </CollectionItemContainer>

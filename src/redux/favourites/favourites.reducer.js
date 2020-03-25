@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     switch(action.type){
         case ACTION_TYPES.ADD_FAVOURITES:
             return { ...state,favourites:addToFavourites(state.favourites,action.payload)}
-        case ACTION_TYPES.DELETE_FAVOURITES:
+        case ACTION_TYPES.DELETE_FAVOURITE:
             return { ...state,favourites:deleteFromFavourites(state.favourites,action.payload)}
         case (ACTION_TYPES.DELETE_ALL):
             return{

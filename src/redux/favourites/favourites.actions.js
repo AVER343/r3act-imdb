@@ -5,7 +5,7 @@ export const ADD_FAVOURITE=(element)=>({
     payload:element
 })
 export const DELETE_FAVOURITE=(element)=>({
-    type:ACTION_TYPES.DELETE_FAVOURITES,
+    type:ACTION_TYPES.DELETE_FAVOURITE,
     payload:element
 })
 export const DELETE_ALL=()=>({
