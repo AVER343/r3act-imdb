@@ -38,7 +38,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/signin' render={()=>(this.props.currentUser?<Redirect to='/'></Redirect>:<SignInAndSignUpPage/>)}/>
-          <Route path='/favourites'component={FavouritesPage}/>
+          <Route path='/favourites' component={FavouritesPage}/>
         </Switch>
       </div>
     );

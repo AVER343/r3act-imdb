@@ -23,7 +23,7 @@ const CheckoutPage = ({ favourites }) => (
         <span>Year</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>    Type</span>
+        <span>Type</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
         <span>Remove</span>

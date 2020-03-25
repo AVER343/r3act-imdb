@@ -53,7 +53,7 @@ class HomePage extends React.Component {
   };
   render() {
     return (
-      <div><SearchingContainer>
+     <SearchingContainer>
        <SearchingForm>
             <form >
             <FormInput
@@ -82,15 +82,14 @@ class HomePage extends React.Component {
            </form>
        </SearchingForm>
        
-    </SearchingContainer>
+    
     <TitleContainer onClick={() => {console.log("Working")}}>
      {this.state.Search?<div>Total Results:{this.state.totalResults}</div>:null}
     </TitleContainer>
     {this.state.Search?this.fourItemPairs(this.state.Search).map(element=>{
         return (<CollectionPreviewComponent key={Math.random()+10*Math.random()} Search={element}></CollectionPreviewComponent>)
-      }):null}
-      
-    </div>
+      }):null} 
+    </SearchingContainer>
     );
   }
 }
