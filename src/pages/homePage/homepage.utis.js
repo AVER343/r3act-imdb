@@ -1,4 +1,4 @@
-const fourItemPairs = (Search)=>{
+export const fourItemPairs = (Search)=>{
    var newSearch=[]
   var condition=(Search.length/4)
    var i,end=4,j
