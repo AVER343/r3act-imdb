@@ -31,7 +31,7 @@ class HomePage extends React.Component {
                }, 2000);};
     this.Search = this.state.Search
     this.url =`https://www.omdbapi.com/?APIKEY=a51d58ac`
-    this.myFunction=(state,url,fetchingData,timeToDelay)=>mF(state,url,fetchingData)
+    this.myFunction=(state,url,fetchingData)=>mF(state,url,fetchingData)
     this.myStopFunction=(fetchingData)=>mSF(fetchingData)
     this.fourItemPairs=(Search)=>fIP(Search)   
 }
