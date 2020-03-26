@@ -32,7 +32,7 @@ const CheckoutPage = ({ favourites }) => (
     {favourites.map(item => (
       <CheckoutItem key={item.imdbID} item={item} />
     ))}
-    <TotalContainer>TOTAL:</TotalContainer>
+    <TotalContainer>TOTAL:{favourites.length}</TotalContainer>
     
   </CheckoutPageContainer>
 );

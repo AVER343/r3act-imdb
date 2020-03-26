@@ -2,15 +2,16 @@ import React from 'react'
 import { getFavourites } from '../../redux/favourites/favourites.selectors'
 import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
+import {CheckoutItemContainer } from './favourites.styles'
 import CheckoutPage from '../../components/checkout/checkout.component'
 import CollectionPreview from '../../components/collection-preview/collection-preview.component'
 const FavouritesPage=({favourites})=>{
     favourites=fourItemPairs(favourites)
 return(
-    <div>
+    <CheckoutItemContainer>
        {/* {favourites?favourites.map(element=><CollectionPreview Search={element}/>):null}   */}
        <CheckoutPage ></CheckoutPage>
-    </div>
+    </CheckoutItemContainer>
 )}
 const mapStateToProps=createStructuredSelector({
 favourites:getFavourites

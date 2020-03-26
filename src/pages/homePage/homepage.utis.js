@@ -27,7 +27,7 @@ export const myFunction=(state,url,fetchingData)=> {
    url=url.concat(`&page=${page}`)
      fetchingData(url)
    }
-export const myStopFunction=(fetchingData)=> 
+export const myStopFunction=(timeout)=> 
       {
-         clearTimeout(fetchingData);
+         clearTimeout(timeout);
       }

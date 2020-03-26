@@ -1,7 +1,7 @@
 import React from 'react';
 import {SearchingContainer,SearchingForm,TitleContainer} from './homepage.styles'
 import FormInput from '../../components/form-input/form-input.component';
-import {fourItemPairs as fIP,myFunction as mF,myStopFunction as mSF} from'./homepage.utis'
+import {fourItemPairs as fIP,myFunction as mF} from'./homepage.utis'
 import CollectionPreviewComponent from '../../components/collection-preview/collection-preview.component';
 class HomePage extends React.Component {
   constructor(props) {
@@ -13,26 +13,29 @@ class HomePage extends React.Component {
       response:'false',
       totalResults:'',
      }
-  this.timeToDelay=2000
+var timeout
  this.fetchingData = (url)=>{
-    setTimeout(
+   timeout= setTimeout(
             ()=>{
                fetch(url)
-               .then(response=>{
-                  if(response.status!==200) {return console.error('Not working')};
-                  return response.json()})
-               .then(data=>{ 
-                this.setState({Search:data.Search,response:data.response,totalResults:data.totalResults})
-              })
-              .catch(error=>
-                {
-                  alert(error)
-                })
-               }, 2000);};
+                   .then(response=>{
+                        if(response.status!==200) {return console.error('Not working')};
+                             return response.json()})
+                    .then(data=>{ 
+                                  this.setState({Search:data.Search,response:data.response,totalResults:data.totalResults})
+                                  })
+                    .catch(error=>
+                            {
+                              alert(error)
+                            })
+              }, 2000);};
     this.Search = this.state.Search
     this.url =`https://www.omdbapi.com/?APIKEY=a51d58ac`
     this.myFunction=(state,url,fetchingData)=>mF(state,url,fetchingData)
-    this.myStopFunction=(fetchingData)=>mSF(fetchingData)
+    this.myStopFunction=  ()=> 
+    {
+       clearTimeout(timeout);
+    }
     this.fourItemPairs=(Search)=>fIP(Search)   
 }
 
@@ -42,12 +45,12 @@ class HomePage extends React.Component {
            console.error("ENTER MOVIE NAME FIRST")
         }
     else {
-        this.myStopFunction(this.fetchingData)
+        this.myStopFunction()
         this.handleChange(event)
         }
    }
    handleChange = (event)=> {
-    this.myStopFunction(this.fetchingData)
+    this.myStopFunction()
     const { value, name } = event.target;
     this.setState({ [name]: value },()=>value?this.myFunction(this.state,this.url,this.fetchingData):null);
   };

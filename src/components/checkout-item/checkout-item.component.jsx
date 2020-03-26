@@ -1,15 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import 
-ACTION_TYPES
- from '../../redux/favourites/favourites.action.types';
-
 import {
   CheckoutItemContainer,
   ImageContainer,
   TextContainer,
-  QuantityContainer,
   RemoveButtonContainer
 } from './checkout-item.styles';
 import { DELETE_FAVOURITE, ADD_FAVOURITE } from '../../redux/favourites/favourites.actions';
